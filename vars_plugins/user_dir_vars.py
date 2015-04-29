@@ -18,6 +18,7 @@
 import os
 from ansible import utils
 from ansible import errors
+import ansible.constants as C
 
 class VarsModule(object):
 
@@ -43,7 +44,10 @@ class VarsModule(object):
         
         for g in host.groups:
             result.update(self.get_group_vars(g,vault_password))
-
+            if C.DEFAULT_HASH_BEHAVIOUR == "merge":
+                result = utils.merge_hash(result, data)
+            else:
+                result.update(data)
         return result
 
 
