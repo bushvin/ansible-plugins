@@ -58,7 +58,7 @@ class VarsModule(object):
         if os.path.isfile( filename ):
             res = utils.parse_yaml_from_file(filename, vault_password=vault_password)
             if type(res) != dict:
-                raise errors.AnsibleError("%s must be stored as a dictionary/hash" % path)
+                raise errors.AnsibleError("%s must be stored as a dictionary/hash" % filename)
             data = dict()
             for el in res:
                 if len(self._host_allowed_facts) == 0 or el in self._host_allowed_facts:
@@ -75,7 +75,7 @@ class VarsModule(object):
         if os.path.isfile( filename ):
             res = utils.parse_yaml_from_file(filename, vault_password=vault_password)
             if type(res) != dict:
-                raise errors.AnsibleError("%s must be stored as a dictionary/hash" % path)
+                raise errors.AnsibleError("%s must be stored as a dictionary/hash" % filename)
             data = dict()
             for el in res:
                 if len(self._group_allowed_facts) == 0 or el in self._group_allowed_facts:
