@@ -1,7 +1,7 @@
 ansible-plugins
 ===============
 
-These are my custom modules I've written for Ansible (https://github.com/ansible/ansible):
+These are my custom plugins I've written for Ansible (https://github.com/ansible/ansible):
 
 ## vars_plugins/
 ### user_dir_vars.py
